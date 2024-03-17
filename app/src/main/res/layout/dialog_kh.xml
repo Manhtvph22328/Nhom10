@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D2020202">
+
+    <ImageView
+        android:layout_width="127dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:src="@drawable/kh_24"/>
+
+    <EditText
+        android:id="@+id/dialog_Kh_maKh"
+        android:hint="   Mã khách hàng"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/dialog_Kh_tenKh"
+        android:hint="   Tên khách hàng"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/dialog_Kh_diachi"
+        android:hint="   Địa chỉ"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/dialog_Kh_sodt"
+        android:hint="   Số điện thoại"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnhuykh"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnhuy" />
+        <ImageButton
+            android:id="@+id/btnthemkh"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnthem" />
+    </LinearLayout>
+
+</LinearLayout>

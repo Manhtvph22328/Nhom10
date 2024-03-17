@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D2020202"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="127dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:src="@drawable/hd" />
+
+    <EditText
+        android:id="@+id/dialog_Hd_maDh"
+        android:hint="   Mã Hóa đơn"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <Spinner
+        android:id="@+id/spn_dialog_Nv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightwhite"
+        android:layout_margin="10dp"/>
+    <Spinner
+        android:id="@+id/spn_dialog_Kh"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightwhite"
+        android:layout_margin="10dp"/>
+    <Spinner
+        android:id="@+id/spn_dialog_Sp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightwhite"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/dialog_Hd_soLuong"
+        android:hint="   Số lượng"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:id="@+id/dialog_Hd_Gia"
+        android:hint="   Giá"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"/>
+    <EditText
+        android:drawableEnd="@drawable/calendar"
+        android:id="@+id/dialog_Hd_ngay"
+        android:layout_margin="10dp"
+        android:hint="   Ngày"
+        android:background="@color/lightwhite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnhuyhd"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnhuy" />
+        <ImageButton
+            android:id="@+id/btnthemhd"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnthem" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="#3BC841"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="center"
+        android:src="@drawable/profile" />
+
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text=" Welcome"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            android:textSize="45dp" />
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:text="      Oppo Hello"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
+        <TextView
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textStyle="italic"
+            android:text=" Đc:  CĐ FPT Trịnh Văn Bô"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+    </LinearLayout>
+</LinearLayout>

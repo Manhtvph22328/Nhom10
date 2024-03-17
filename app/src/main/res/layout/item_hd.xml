@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/item_Hd_img"
+            android:src="@drawable/hoadon"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="80dp"
+            android:layout_height="100dp"/>
+        <View
+            android:layout_width="3dp"
+            android:layout_height="160dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"/>
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            android:layout_weight="10">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_Dh_mahd"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="   HD:"
+                    android:textColor="#000000"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/tv_Hd_maNv"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="   Mã Nv:"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_Hd_makhach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginTop="10dp"
+                android:hint="   Khách:"
+                android:textSize="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_Hd_Sanpham"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="   Sản phẩm:"
+                    android:textColor="#000000"
+                    android:textSize="20dp"/>
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/item_Hd_del"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/delete" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_Hd_gia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="   Giá:"
+                android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_Hd_soLuong"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="   Số lượng:"
+                    android:textColor="#000000"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/tv_Hd_ngay"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ngày:"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20dp"/>
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/item_Hd_thanhToan"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@color/grey"
+                    android:layout_weight="1"
+                    android:src="@drawable/giohang" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="350dp"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="28dp"/>
+</LinearLayout>
