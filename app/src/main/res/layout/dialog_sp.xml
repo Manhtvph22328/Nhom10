@@ -27,7 +27,7 @@
         android:layout_margin="10dp"
         android:layout_height="50dp"/>
     <Spinner
-        android:id="@+id/spn_dialog_Dm"
+        android:id="@+id/spn_dialog_Sp_Dm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/lightwhite"

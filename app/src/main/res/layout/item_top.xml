@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/item_Nv_img"
+            android:id="@+id/item_Top_img"
             android:src="@drawable/topitem"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"

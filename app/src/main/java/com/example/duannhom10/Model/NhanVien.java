@@ -1,18 +1,16 @@
 package com.example.duannhom10.Model;
 
-import java.util.Date;
-
 public class NhanVien {
-    private int maNv;
+    private String maNv;
     private String hoTen;
-    private Date namSinh;
+    private String namSinh;
     private String email;
     private String matKhau;
 
     public NhanVien() {
     }
 
-    public NhanVien(int maNv, String hoTen, Date namSinh, String email, String matKhau) {
+    public NhanVien(String maNv, String hoTen, String namSinh, String email, String matKhau) {
         this.maNv = maNv;
         this.hoTen = hoTen;
         this.namSinh = namSinh;
@@ -20,11 +18,11 @@ public class NhanVien {
         this.matKhau = matKhau;
     }
 
-    public int getMaNv() {
+    public String getMaNv() {
         return maNv;
     }
 
-    public void setMaNv(int maNv) {
+    public void setMaNv(String maNv) {
         this.maNv = maNv;
     }
 
@@ -36,11 +34,11 @@ public class NhanVien {
         this.hoTen = hoTen;
     }
 
-    public Date getNamSinh() {
+    public String getNamSinh() {
         return namSinh;
     }
 
-    public void setNamSinh(Date namSinh) {
+    public void setNamSinh(String namSinh) {
         this.namSinh = namSinh;
     }
 

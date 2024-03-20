@@ -23,6 +23,8 @@ import com.example.duannhom10.Fragment.KhachHangFragment;
 import com.example.duannhom10.Fragment.NhanVienFragment;
 import com.example.duannhom10.Fragment.SanPhamFragment;
 import com.example.duannhom10.Fragment.TopFragment;
+import com.example.duannhom10.Model.NhanVien;
+import com.example.duannhom10.SQL.NhanVienDao;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -31,9 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private NavigationView navigationView;
     private FrameLayout frameLayout;
-
     private TextView tv_header;
-
+    private NhanVienDao nhanVienDao;
     private DoimkFragment doiMkFragment = new DoimkFragment();
 
     @Override
@@ -51,6 +52,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         Intent intent = getIntent();
+        String maNv = intent.getStringExtra("TK");
+        Bundle bundle = new Bundle();
+        bundle.putString("TK", maNv);
+        doiMkFragment.setArguments(bundle);
+
+        nhanVienDao = new NhanVienDao(this);
+        NhanVien nhanVien = nhanVienDao.getId(maNv);
+
+        MenuItem item = navigationView.getMenu().findItem(R.id.ql_nhanvien);
+        if (nhanVien.getHoTen().equals("admin")){
+            item.setEnabled(true);
+        }else {
+            item.setEnabled(false);
+        }
 
         View header = navigationView.getHeaderView(0);
         tv_header = header.findViewById(R.id.tv_header);

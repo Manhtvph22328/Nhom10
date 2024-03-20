@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.KhachHangFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="730dp"
+        android:orientation="vertical">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView_Kh"
+            android:layout_width="match_parent"
+            android:layout_height="726dp"
+            />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingactionKh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="#4CAF50"
+        android:layout_margin="20dp"
+        android:src="@drawable/khachhang"/>
 </FrameLayout>

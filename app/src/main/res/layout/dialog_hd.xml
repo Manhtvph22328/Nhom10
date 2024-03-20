@@ -19,19 +19,19 @@
         android:layout_margin="10dp"
         android:layout_height="50dp"/>
     <Spinner
-        android:id="@+id/spn_dialog_Nv"
+        android:id="@+id/spn_dialog_Hd_Nv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/lightwhite"
         android:layout_margin="10dp"/>
     <Spinner
-        android:id="@+id/spn_dialog_Kh"
+        android:id="@+id/spn_dialog_Hd_Kh"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/lightwhite"
         android:layout_margin="10dp"/>
     <Spinner
-        android:id="@+id/spn_dialog_Sp"
+        android:id="@+id/spn_dialog_Hd_Sp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/lightwhite"
