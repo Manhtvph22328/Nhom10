@@ -48,7 +48,6 @@ public class DanhMucDao {
     }
     public int update(DanhMuc danhMuc){
         ContentValues values = new ContentValues();
-        values.put("maDm",danhMuc.getMaDm());
         values.put("tenDm", danhMuc.getTenDm());
         int kq = sqLiteDatabase.update("DANHMUC",values,"maDm=?",new String[]{String.valueOf(danhMuc.getMaDm())});
         if (kq<=0){

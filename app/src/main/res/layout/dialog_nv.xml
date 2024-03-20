@@ -5,69 +5,71 @@
     android:background="#D2020202"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="127dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_margin="15dp"
-        android:src="@drawable/addnvien" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="700dp"
+       android:orientation="vertical">
+       <ImageView
+           android:layout_width="127dp"
+           android:layout_height="100dp"
+           android:layout_gravity="center"
+           android:layout_margin="15dp"
+           android:src="@drawable/addnvien" />
 
-    <EditText
-        android:id="@+id/dialog_Nv_maNv"
-        android:hint="   Mã Nhân viên"
-        android:background="@color/lightwhite"
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="50dp"/>
-    <EditText
-        android:id="@+id/dialog_Nv_tenNv"
-        android:hint="   Tên Nhân viên"
-        android:background="@color/lightwhite"
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:layout_height="50dp"/>
-    <EditText
-        android:drawableEnd="@drawable/calendar"
-        android:id="@+id/dialog_Nv_namSNv"
-        android:layout_margin="10dp"
-        android:hint="   Năm sinh "
-        android:background="@color/lightwhite"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-    <EditText
-        android:id="@+id/dialog_Nv_mkNv"
-        android:hint="   Mật khẩu"
-        android:background="@color/lightwhite"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:layout_margin="10dp"
-        android:layout_height="50dp"/>
-    <EditText
-        android:id="@+id/dialog_Nv_mklaiNv"
-        android:hint="   Mật khẩu nhắc lại"
-        android:background="@color/lightwhite"
-        android:layout_width="match_parent"
-        android:inputType="textPassword"
-        android:layout_margin="10dp"
-        android:layout_height="50dp"/>
+       <EditText
+           android:id="@+id/dialog_Nv_maNv"
+           android:hint="   Mã Nhân viên"
+           android:background="@color/lightwhite"
+           android:layout_width="match_parent"
+           android:layout_margin="10dp"
+           android:layout_height="50dp"/>
+       <EditText
+           android:id="@+id/dialog_Nv_tenNv"
+           android:hint="   Tên Nhân viên"
+           android:background="@color/lightwhite"
+           android:layout_width="match_parent"
+           android:layout_margin="10dp"
+           android:layout_height="50dp"/>
+       <EditText
+           android:drawableEnd="@drawable/calendar"
+           android:id="@+id/dialog_Nv_namSNv"
+           android:layout_margin="10dp"
+           android:hint="   Năm sinh "
+           android:background="@color/lightwhite"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"/>
+       <EditText
+           android:id="@+id/dialog_Nv_mail"
+           android:hint="   Mail"
+           android:background="@color/lightwhite"
+           android:layout_width="match_parent"
+           android:layout_margin="10dp"
+           android:layout_height="50dp"/>
+       <EditText
+           android:id="@+id/dialog_Nv_mkNv"
+           android:hint="   Mật khẩu"
+           android:background="@color/lightwhite"
+           android:layout_width="match_parent"
+           android:inputType="textPassword"
+           android:layout_margin="10dp"
+           android:layout_height="50dp"/>
 
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageButton
-            android:id="@+id/btnhuynv"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnhuy" />
-        <ImageButton
-            android:id="@+id/btnthemnv"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnthem" />
-    </LinearLayout>
+       <LinearLayout
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <ImageButton
+               android:id="@+id/btnhuynv"
+               android:layout_width="140dp"
+               android:layout_height="50dp"
+               android:background="@drawable/btnhuy" />
+           <ImageButton
+               android:id="@+id/btnthemnv"
+               android:layout_width="140dp"
+               android:layout_height="50dp"
+               android:layout_marginLeft="20dp"
+               android:background="@drawable/btnthem" />
+       </LinearLayout>
+   </LinearLayout>
 </LinearLayout>

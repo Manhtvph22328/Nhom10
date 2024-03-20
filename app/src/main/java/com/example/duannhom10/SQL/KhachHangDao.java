@@ -21,10 +21,9 @@ public class KhachHangDao {
     }
     public int Insert(KhachHang khachHang){
         ContentValues values = new ContentValues();
-        values.put("maKh",khachHang.getMaKh());
-        values.put("hoTen",khachHang.getTenKh());
+        values.put("tenKh",khachHang.getTenKh());
         values.put("diaChi",khachHang.getDiaChi());
-        values.put("SoDt",khachHang.getSoDt());
+        values.put("soDt",khachHang.getSoDt());
 
         long kq = sqLiteDatabase.insert("KHACHHANG",null,values);
         if(kq<=0){
@@ -52,10 +51,9 @@ public class KhachHangDao {
     }
     public int update(KhachHang khachHang){
         ContentValues values = new ContentValues();
-        values.put("maKh",khachHang.getMaKh());
-        values.put("hoTen",khachHang.getTenKh());
+        values.put("tenKh",khachHang.getTenKh());
         values.put("diaChi",khachHang.getDiaChi());
-        values.put("SoDt",khachHang.getSoDt());
+        values.put("soDt",khachHang.getSoDt());
 
         int kq = sqLiteDatabase.update("KHACHHANG",values,"maKh=?",new String[]{String.valueOf(khachHang.getMaKh())});
         if(kq<=0){
@@ -71,6 +69,6 @@ public class KhachHangDao {
             cursor.moveToFirst();
             list.add(new KhachHang(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3)));
         }
-        return list.get(0);
+            return list.get(0);
     }
 }

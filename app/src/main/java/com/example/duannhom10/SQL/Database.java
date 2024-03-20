@@ -19,22 +19,17 @@ public class Database extends SQLiteOpenHelper {
     public static final String SQL_NhanVien = "create table NHANVIEN ("+
             " maNv INTEGER primary key AUTOINCREMENT,"+
             " tenNv TEXT not null,"+
+            " namSinh TEXT not null,"+
             " email TEXT not null,"+
-            " namSinh Date not null,"+
-            " matKhau INTEGER not null);";
+            " matKhau TEXT not null);";
     public static final String SQL_KhachHang = "create table KHACHHANG ("+
-            " maKh INTEGER primary key AUTOINCREMENT,"+
+            " maKh INTEGER primary key,"+
             " tenKh TEXT not null,"+
-            " diChi TEXT not null,"+
-            " dienThoai INTEGER not null);";
-
-    public static final String SQL_Admin = "create table ADMIN ("+
-            " maAD INTEGER primary key AUTOINCREMENT,"+
-            " ten TEXT not null,"+
-            " matKhau INTEGER not null);";
+            " diaChi TEXT not null,"+
+            " soDt INTEGER not null);";
     public static final String SQL_DanhMuc = "create table DANHMUC ("+
             " maDm INTEGER primary key AUTOINCREMENT,"+
-            " tenDm INTEGER not null);";
+            " tenDm TEXT not null);";
 
     public static final String SQL_HoaDon = "create table HOADON ("+
             " maHD INTEGER primary key AUTOINCREMENT,"+
@@ -42,11 +37,11 @@ public class Database extends SQLiteOpenHelper {
             " maKh INTEGER not null,"+
             " maSP INTEGER not null,"+
             " thanhToan TEXT not null,"+
-            " Ngay INTEGER not null,"+
+            " Ngay DATE not null,"+
             " Tien INTEGER not null);";
 
-    public static final String Insert_Admin = "INSERT INTO ADMIN(maAD, hoTen, matKhau)VALUES"+
-            "('admin','admin','aaaa')";
+    public static final String Insert_Admin = "INSERT INTO NHANVIEN(tenNv, namSinh, email, matKhau) VALUES"+
+            "('admin', '1990-01-01', 'john@example.com','aaaa')";
 
     public Database(@Nullable Context context) {
         super(context, "oppohello.db", null, 1);
@@ -57,7 +52,6 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(SQL_SanPham);
         db.execSQL(SQL_NhanVien);
         db.execSQL(SQL_KhachHang);
-        db.execSQL(SQL_Admin);
         db.execSQL(SQL_DanhMuc);
         db.execSQL(SQL_HoaDon);
         db.execSQL(Insert_Admin);
@@ -68,7 +62,6 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS SANPHAM");
         db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
         db.execSQL("DROP TABLE IF EXISTS KHACHHANG");
-        db.execSQL("DROP TABLE IF EXISTS ADMIN");
         db.execSQL("DROP TABLE IF EXISTS DANHMUC");
         db.execSQL("DROP TABLE IF EXISTS HOADON");
         onCreate(db);

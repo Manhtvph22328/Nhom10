@@ -11,10 +11,10 @@
         <ImageView
             android:id="@+id/item_Hd_img"
             android:src="@drawable/hoadon"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="80dp"
-            android:layout_height="100dp"/>
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
         <View
             android:layout_width="3dp"
             android:layout_height="160dp"
@@ -34,6 +34,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_marginLeft="15dp"
                     android:hint="   HD:"
                     android:textColor="#000000"
                     android:textSize="20dp"/>
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
                 android:hint="   Khách:"
                 android:textSize="20dp"/>
             <LinearLayout
@@ -59,9 +61,10 @@
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/tv_Hd_Sanpham"
-                    android:layout_width="250dp"
+                    android:layout_width="230dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_marginLeft="15dp"
                     android:hint="   Sản phẩm:"
                     android:textColor="#000000"
                     android:textSize="20dp"/>
@@ -79,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginLeft="15dp"
                 android:hint="   Giá:"
                 android:textSize="20dp" />
             <LinearLayout
@@ -86,19 +90,28 @@
                 android:layout_height="35dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/tv_Hd_soLuong"
-                    android:layout_width="120dp"
+                    android:layout_width="85dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="   Số lượng:"
+                    android:layout_marginLeft="15dp"
+                    android:hint="Số lượng:"
+                    android:textColor="#000000"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/tv_Hd_soLuong"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="2"
                     android:textColor="#000000"
                     android:textSize="20dp"/>
                 <TextView
                     android:id="@+id/tv_Hd_ngay"
-                    android:layout_width="140dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:hint="Ngày:"
                     android:layout_marginTop="8dp"
+                    android:layout_marginLeft="5dp"
                     android:textSize="20dp"/>
                 <ImageView
                     android:layout_gravity="center"
