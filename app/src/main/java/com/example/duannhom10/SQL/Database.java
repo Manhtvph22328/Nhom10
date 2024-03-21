@@ -41,7 +41,7 @@ public class Database extends SQLiteOpenHelper {
             " Tien INTEGER not null);";
 
     public static final String Insert_Admin = "INSERT INTO NHANVIEN(tenNv, namSinh, email, matKhau) VALUES"+
-            "('admin', '1990-01-01', 'john@example.com','aaaa')";
+            "('admin', '01/01/1990', 'admin@example.com','aaaa')";
 
     public Database(@Nullable Context context) {
         super(context, "oppohello.db", null, 1);

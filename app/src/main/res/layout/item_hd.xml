@@ -6,6 +6,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:background="@drawable/css"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -116,7 +117,7 @@
                 <ImageView
                     android:layout_gravity="center"
                     android:id="@+id/item_Hd_thanhToan"
-                    android:layout_width="30dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@color/grey"
                     android:layout_weight="1"
