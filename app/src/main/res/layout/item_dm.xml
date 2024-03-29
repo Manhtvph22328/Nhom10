@@ -8,6 +8,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:background="@drawable/css"
+        android:layout_marginTop="7dp"
         android:layout_height="60dp">
         <ImageView
             android:id="@+id/item_Dm_img"

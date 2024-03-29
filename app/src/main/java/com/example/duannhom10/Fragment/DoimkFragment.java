@@ -1,60 +1,36 @@
 package com.example.duannhom10.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.duannhom10.Model.NhanVien;
 import com.example.duannhom10.R;
+import com.example.duannhom10.SQL.NhanVienDao;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoimkFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DoimkFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private EditText mkcu, mkmoi, mklai;
+    private NhanVienDao nhanVienDao;
+    private Context context;
 
     public DoimkFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DoimkFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static DoimkFragment newInstance(String param1, String param2) {
         DoimkFragment fragment = new DoimkFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,5 +38,31 @@ public class DoimkFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_doimk, container, false);
+    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mkcu = view.findViewById(R.id.ed_doimk_mkcu);
+        mkmoi = view.findViewById(R.id.ed_doimk_mkmoi);
+        mklai = view.findViewById(R.id.ed_doimk_mknhaclai);
+        nhanVienDao = new NhanVienDao(getActivity());
+        int maNV = Integer.parseInt(getArguments().getString("TK"));
+        view.findViewById(R.id.btndoimk).setOnClickListener(v -> {
+            NhanVien nv = nhanVienDao.getId(maNV);
+            if(mkcu.getText().toString().equals(nv.getMatKhau()) && mkmoi.getText().toString().equals(mklai.getText().toString())){
+                nv.setMatKhau(mkmoi.getText().toString());
+                int kq = nhanVienDao.update(nv);
+                if (kq == -1) {
+                    Toast.makeText(getActivity(), "Đổi mật khẩu thất bại", Toast.LENGTH_SHORT).show();
+                }
+                if (kq == 1) {
+                    Toast.makeText(getActivity(), "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else if(mkcu.length() ==0|| mkmoi.length()==0||mklai.length() == 0){
+                Toast.makeText(getActivity(), "Không để trống", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getActivity(), "Sai thông tin", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

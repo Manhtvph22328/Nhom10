@@ -12,9 +12,9 @@ public class Database extends SQLiteOpenHelper {
             " maSP INTEGER primary key AUTOINCREMENT,"+
             " tenSP TEXT not null,"+
             " moTa TEXT not null,"+
-            " maDm TEXT not null,"+
+            " maDm INTEGER REFERENCES DANHMUC(maDm),"+
             " soLuong INTEGER not null,"+
-            " giaSP INTEGER not null);";
+            " Gia INTEGER not null);";
 
     public static final String SQL_NhanVien = "create table NHANVIEN ("+
             " maNv INTEGER primary key AUTOINCREMENT,"+
@@ -33,9 +33,9 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String SQL_HoaDon = "create table HOADON ("+
             " maHD INTEGER primary key AUTOINCREMENT,"+
-            " maNv INTEGER not null,"+
-            " maKh INTEGER not null,"+
-            " maSP INTEGER not null,"+
+            " maNv INTEGER REFERENCES NHANVIEN(maNv),"+
+            " maKh INTEGER REFERENCES KHACHHANG(maKh),"+
+            " maSP INTEGER REFERENCES SANPHAM(maSP),"+
             " thanhToan TEXT not null,"+
             " Ngay DATE not null,"+
             " Tien INTEGER not null);";

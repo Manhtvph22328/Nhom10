@@ -4,18 +4,23 @@ public class SanPham {
     private int maSp;
     private String tenSp;
     private String moTa;
+    private int maDm;
     private int soLuong;
     private int gia;
 
     public SanPham() {
     }
 
-    public SanPham(int maSp, String tenSp, String moTa, int soLuong, int gia) {
+    public SanPham(int maSp, String tenSp, String moTa, int maDm, int soLuong, int gia) {
         this.maSp = maSp;
         this.tenSp = tenSp;
         this.moTa = moTa;
+        this.maDm = maDm;
         this.soLuong = soLuong;
         this.gia = gia;
+    }
+
+    public SanPham(int anInt, String string, int anInt1, int anInt2) {
     }
 
     public int getMaSp() {
@@ -40,6 +45,14 @@ public class SanPham {
 
     public void setMoTa(String moTa) {
         this.moTa = moTa;
+    }
+
+    public int getMaDm() {
+        return maDm;
+    }
+
+    public void setMaDm(int maDm) {
+        this.maDm = maDm;
     }
 
     public int getSoLuong() {

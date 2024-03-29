@@ -8,10 +8,12 @@
     tools:context=".MainChao">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
         android:background="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
