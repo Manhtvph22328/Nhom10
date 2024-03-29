@@ -66,19 +66,14 @@ public class NhanVienDao {
         }
         return 1;
     }
-    public NhanVien getId(String id) {
+    public NhanVien getId(int id) {
 
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM NHANVIEN WHERE maNv=?", new String[]{id});
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM NHANVIEN WHERE maNv=?", new String[]{String.valueOf(id)});
         ArrayList<NhanVien> list = new ArrayList<>();
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             list.add(new NhanVien(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)));
         }
-        if (!list.isEmpty()) {
-            return list.get(0);
-        } else {
-
-            return null;
-        }
+        return list.get(0);
     }
 }

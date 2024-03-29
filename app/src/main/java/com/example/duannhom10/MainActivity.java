@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         doiMkFragment.setArguments(bundle);
 
         nhanVienDao = new NhanVienDao(this);
-        NhanVien nhanVien = nhanVienDao.getId(maNv);
+        NhanVien nhanVien = nhanVienDao.getId(Integer.parseInt(maNv));
 
         MenuItem item = navigationView.getMenu().findItem(R.id.ql_nhanvien);
         if (nhanVien.getHoTen().equals("admin")){

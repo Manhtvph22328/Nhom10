@@ -100,8 +100,6 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-            arrayList = nhanVienDao.getAllNhanVien();
-
+        arrayList = nhanVienDao.getAllNhanVien();
     }
 }

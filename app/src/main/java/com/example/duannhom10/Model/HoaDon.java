@@ -11,7 +11,7 @@ public class HoaDon {
     private String thanhToan;
     private Date ngay;
 
-    public HoaDon(int anInt, int cursorInt, int i, int anInt1, String string, Date parse) {
+    public HoaDon() {
     }
 
     public HoaDon(int maHd, int maNv, int maKh, int maSp, int tien, String thanhToan, Date ngay) {

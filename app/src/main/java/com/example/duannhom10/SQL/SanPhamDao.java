@@ -21,9 +21,9 @@ public class SanPhamDao {
     }
     public int Insert(SanPham sp){
         ContentValues values = new ContentValues();
-        values.put("maSp",sp.getMaSp());
         values.put("tenSP",sp.getTenSp());
         values.put("moTa",sp.getMoTa());
+        values.put("maDm",sp.getMaDm());
         values.put("soLuong",sp.getSoLuong());
         values.put("Gia",sp.getGia());
 
@@ -39,7 +39,7 @@ public class SanPhamDao {
         if(cursor.getCount()!=0){
             cursor.moveToFirst();
             do{
-                list.add(new SanPham(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4)));
+                list.add(new SanPham(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5)));
             }while (cursor.moveToNext());
         }
         return list;
@@ -53,9 +53,9 @@ public class SanPhamDao {
     }
     public int update(SanPham sp){
         ContentValues values = new ContentValues();
-        values.put("maSp",sp.getMaSp());
         values.put("tenSP",sp.getTenSp());
         values.put("moTa",sp.getMoTa());
+        values.put("maDm",sp.getMaDm());
         values.put("soLuong",sp.getSoLuong());
         values.put("Gia",sp.getGia());
 
@@ -69,7 +69,7 @@ public class SanPhamDao {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM SANPHAM WHERE maSP=?",new String[]{String.valueOf(id)});
         ArrayList<SanPham> list = new ArrayList<>();
         cursor.moveToFirst();
-        list.add(new SanPham(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4)));
+        list.add(new SanPham(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5)));
         SanPham sp = list.get(0);
         return sp;
 
