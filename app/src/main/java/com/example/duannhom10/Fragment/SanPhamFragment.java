@@ -81,6 +81,8 @@ public class SanPhamFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recycleView_SanPham);
         floating = view.findViewById(R.id.floatingaction_SanPham);
+        viewFlipper = view.findViewById(R.id.viewFlipper);
+        viewFlipper();
         floating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,8 +92,6 @@ public class SanPhamFragment extends Fragment {
         ed_timKiem = view.findViewById(R.id.ed_timKiemSp);
         bnt_timKiem = view.findViewById(R.id.btn_timKiemSp);
 
-        viewFlipper = view.findViewById(R.id.viewFlipper);
-        viewFlipper();
         bnt_timKiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,9 +169,9 @@ public class SanPhamFragment extends Fragment {
     }
     private void viewFlipper() {
         List<String> banner = new ArrayList<>();
-        banner.add("https://cdn.tgdd.vn/2024/03/banner/iPhone-13-800-200-800x200.png");
-        banner.add("https://cdn.tgdd.vn/Products/Images/42/305658/Slider/iphone-15-pro-max-thumb-youtube-1020x570.jpg");
-        banner.add("https://thietkehaithanh.com/wp-content/uploads/2019/06/thietkehaithanh-banner-1-1.jpg");
+        banner.add("https://fecredit.com.vn/wp-content/uploads/2021/06/OPPO-Banner_1176x364-1.png");
+        banner.add("https://fptshop.com.vn/uploads/originals/2018/3/17/636569258867110213_Banner-OPPOF5-H1.jpg");
+        banner.add("https://daygiare.com/public/storage/photo/2019/11/08/adayroi-danh-gia-khuyen-mai-oppo-chinh-hang-uu-dai-len-toi-20-0.png");
         for (int i = 0; i < banner.size(); i++) {
             ImageView imageView = new ImageView(getContext());
             Glide.with(getContext()).load(banner.get(i)).into(imageView);

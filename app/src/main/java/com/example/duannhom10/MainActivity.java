@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.duannhom10.Fragment.DanhMucFragment;
-import com.example.duannhom10.Fragment.DoanhThuFragment;
+import com.example.duannhom10.Fragment.DoanhThu.DoanhThuFragment;
 import com.example.duannhom10.Fragment.DoimkFragment;
 import com.example.duannhom10.Fragment.HoaDonFragment;
 import com.example.duannhom10.Fragment.KhachHangFragment;
