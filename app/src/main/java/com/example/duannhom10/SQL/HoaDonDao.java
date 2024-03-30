@@ -51,8 +51,9 @@ public class HoaDonDao {
                             cursor.getInt(1),
                             cursor.getInt(2),
                             cursor.getInt(3),
-                            cursor.getString(4),
-                            format.parse(cursor.getString(5))));
+                            cursor.getInt(4),
+                            cursor.getString(5),
+                            format.parse(cursor.getString(6))));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -86,16 +87,15 @@ public class HoaDonDao {
     }
 
     public ArrayList<SanPham> top(){
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.maSp,SANPHAM.tenSP,SANPHAM.moTa,SANPHAM.soLuong,SANPHAM.gia,COUNT(SANPHAM.maSP) FROM SANPHAM JOIN HOADON ON SANPHAM.maSp=HOADON.maSp GROUP BY HOADON.maSP ORDER BY COUNT(SANPHAM.maSp) DESC LIMIT 10", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.maSp,SANPHAM.tenSP,SANPHAM.soLuong,SANPHAM.gia,COUNT(SANPHAM.maSP) FROM SANPHAM JOIN HOADON ON SANPHAM.maSp=HOADON.maSp GROUP BY HOADON.maSP ORDER BY COUNT(SANPHAM.maSp) DESC LIMIT 10", null);
         ArrayList<SanPham> list = new ArrayList<>();
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
                 list.add(new SanPham(cursor.getInt(0),
                         cursor.getString(1),
-                        cursor.getString(2),
-                        cursor.getInt(3),
-                        cursor.getInt(4)));
+                        cursor.getInt(2),
+                        cursor.getInt(3)));
             } while (cursor.moveToNext());
         }
         return list;
@@ -122,8 +122,9 @@ public class HoaDonDao {
                             cursor.getInt(1),
                             cursor.getInt(2),
                             cursor.getInt(3),
-                            cursor.getString(4),
-                            format.parse(cursor.getString(5))));
+                            cursor.getInt(4),
+                            cursor.getString(5),
+                            format.parse(cursor.getString(6))));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
