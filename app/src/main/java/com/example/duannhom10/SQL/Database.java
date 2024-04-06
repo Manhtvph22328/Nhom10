@@ -37,7 +37,7 @@ public class Database extends SQLiteOpenHelper {
             " maKh INTEGER REFERENCES KHACHHANG(maKh),"+
             " maSP INTEGER REFERENCES SANPHAM(maSP),"+
             " thanhToan TEXT not null,"+
-            " Ngay DATE not null,"+
+            " Ngay TEXT not null,"+
             " Tien INTEGER not null);";
 
     public static final String Insert_Admin = "INSERT INTO NHANVIEN(tenNv, namSinh, email, matKhau) VALUES"+

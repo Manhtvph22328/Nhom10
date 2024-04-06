@@ -9,12 +9,12 @@ public class HoaDon {
     private int maSp;
     private int tien;
     private String thanhToan;
-    private Date ngay;
+    private String ngay;
 
     public HoaDon() {
     }
 
-    public HoaDon(int maHd, int maNv, int maKh, int maSp, int tien, String thanhToan, Date ngay) {
+    public HoaDon(int maHd, int maNv, int maKh, int maSp, int tien, String thanhToan, String ngay) {
         this.maHd = maHd;
         this.maNv = maNv;
         this.maKh = maKh;
@@ -72,11 +72,11 @@ public class HoaDon {
         this.thanhToan = thanhToan;
     }
 
-    public Date getNgay() {
+    public String getNgay() {
         return ngay;
     }
 
-    public void setNgay(Date ngay) {
+    public void setNgay(String ngay) {
         this.ngay = ngay;
     }
 }

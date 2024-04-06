@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgr1"
     tools:context=".Fragment.HoaDonFragment">
 
     <LinearLayout
@@ -28,13 +29,12 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-
-            android:id="@+id/recycleView_PT"
+            android:id="@+id/recycleView_Hd"
             android:layout_width="match_parent"
             android:layout_height="683dp" />
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingaction_PT"
+        android:id="@+id/floatingaction_Hd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
