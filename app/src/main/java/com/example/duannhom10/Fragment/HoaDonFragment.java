@@ -1,6 +1,7 @@
 package com.example.duannhom10.Fragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,6 +36,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -48,7 +51,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
     private SanPhamDao spDAO;
     private KhachHangDao KhDao;
     private Spinner spn_tenNv,spn_tenSp, spn_tenKh, spn_ttoan;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private int day,month,year;
 
     public HoaDonFragment() {
         // Required empty public constructor
@@ -73,8 +76,8 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.recycleView_PT);
-        actionButton = view.findViewById(R.id.floatingaction_PT);
+        recyclerView = view.findViewById(R.id.recycleView_Hd);
+        actionButton = view.findViewById(R.id.floatingaction_Hd);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +107,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getLayoutInflater();
         View v = inflater.inflate(R.layout.dialog_hd,null);
-        TextView gia, ngay;
+        EditText gia, ngay;
         spn_tenNv = v.findViewById(R.id.spn_dialog_Hd_Nv);
         spn_tenSp = v.findViewById(R.id.spn_dialog_Hd_Sp);
         spn_tenKh = v.findViewById(R.id.spn_dialog_Hd_Kh);
@@ -133,7 +136,37 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
         }
         Spn_Adapter(spn_tenKh,khach);
 
-        ngay.setText(""+new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+        spn_ttoan = v.findViewById(R.id.spn_dialog_Hd_ttoan);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                v.getContext(),
+                R.array.hinhthuc,
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spn_ttoan.setAdapter(adapter);
+
+        builder.setView(v);
+        AlertDialog alertDialog = builder.create();
+
+        Calendar calendar = Calendar.getInstance();
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        month = calendar.get(Calendar.MONTH);
+        year = calendar.get(Calendar.YEAR);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        ngay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        calendar.set(year,month,dayOfMonth);
+                        ngay.setText(simpleDateFormat.format(calendar.getTime()));
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
         spn_tenSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -144,8 +177,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        builder.setView(v);
-        AlertDialog alertDialog = builder.create();
+
         v.findViewById(R.id.btnthemhd).setOnClickListener(v1 -> {
             hoaDonDao = new HoaDonDao(getActivity());
             HoaDon hoaDon = new HoaDon();
@@ -153,7 +185,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
             hoaDon.setMaSp(split(spn_tenSp));
             hoaDon.setMaKh(split(spn_tenKh));
             hoaDon.setTien(Integer.parseInt(gia.getText().toString()));
-            hoaDon.setNgay(new Date());
+            hoaDon.setNgay(ngay.getText().toString());
             int kq = hoaDonDao.Insert(hoaDon);
             if (kq == -1) {
                 Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
@@ -200,6 +232,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     @Override

@@ -7,7 +7,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:background="@drawable/css"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -30,80 +32,125 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginTop="7dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/tv_Dh_mahd"
-                    android:layout_width="80dp"
+                    android:layout_width="37dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="15dp"
-                    android:hint="HD:"
-                    android:textColor="#000000"
-                    android:textSize="20dp"/>
+                    android:textColor="#228125"
+                    android:layout_marginLeft="10dp"
+                    android:text="Mã:"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:text="#"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:id="@+id/tv_Dh_mahd"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:hint="1"
+                    android:textColor="#FF0000"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#228125"
+                    android:layout_marginLeft="10dp"
+                    android:text="Nv:"
+                    android:textSize="18dp"/>
                 <TextView
                     android:id="@+id/tv_Hd_maNv"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:hint="   Mã Nv:"
-                    android:layout_marginTop="8dp"
-                    android:textSize="20dp"/>
+                    android:hint="Manh"
+                    android:textSize="18dp"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="67dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:text="Họ Tên:"
+                android:textSize="18dp"/>
             <TextView
                 android:id="@+id/tv_Hd_makhach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="10dp"
-                android:hint="Khách:"
-                android:textSize="20dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/tv_Hd_Sanpham"
-                    android:layout_width="230dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginLeft="15dp"
-                    android:hint="Sản phẩm:"
-                    android:textColor="#000000"
-                    android:textSize="20dp"/>
+                android:hint="Trình Van Mạnh"
+                android:textSize="18dp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:text="Sản Phẩm:"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:id="@+id/tv_Hd_Sanpham"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Oppo 12 promax 1T"
+                    android:textColor="#000000"
+                    android:textSize="18dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:text="Tổng:"
+                    android:textSize="18dp"/>
             <TextView
                 android:id="@+id/tv_Hd_tien"
-                android:layout_width="180dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="15dp"
-                android:hint="Tiền:"
-                android:textSize="20dp" />
+                android:hint="23.000.000"
+                android:textColor="#FF0000"
+                android:textSize="19dp" />
                 <TextView
                     android:id="@+id/tv_Hd_ttoan"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:textStyle="italic"
-                    android:hint="chuyen khoan"
-                    android:textSize="20dp" />
+                    android:layout_marginLeft="5dp"
+                    android:hint="Thanh Toán"
+                    android:textSize="18dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:text="Ngày mua:"
+                    android:textSize="18dp"/>
                 <TextView
                     android:id="@+id/tv_Hd_ngay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ngày:"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="20dp"/>
+                    android:hint="01/01/2024"
+                    android:textSize="18dp"/>
             </LinearLayout>
         </LinearLayout>
 

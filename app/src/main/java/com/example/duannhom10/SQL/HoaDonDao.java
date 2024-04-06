@@ -16,7 +16,6 @@ public class HoaDonDao {
     private Context contextt;
     private SQLiteDatabase sqLiteDatabase;
     private Database database;
-    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
     public HoaDonDao(Context contextt) {
         this.contextt = contextt;
@@ -30,8 +29,8 @@ public class HoaDonDao {
         values.put("maKh", HD.getMaKh());
         values.put("maSP", HD.getMaSp());
         values.put("Tien", HD.getTien());
-        values.put("thanhToan", HD.getThanhToan());
-        values.put("ngay", format.format(HD.getNgay()));
+        values.put("thanhToan", "");
+        values.put("ngay", HD.getNgay());
 
         long kq = sqLiteDatabase.insert("HOADON", null, values);
         if (kq <= 0) {
@@ -46,18 +45,14 @@ public class HoaDonDao {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                try {
                     list.add(new HoaDon(cursor.getInt(0),
                             cursor.getInt(1),
                             cursor.getInt(2),
                             cursor.getInt(3),
                             cursor.getInt(4),
                             cursor.getString(5),
-                            format.parse(cursor.getString(6))));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            } while (cursor.moveToNext());
+                            cursor.getString(6)));
+            }while (cursor.moveToNext());
         }
         return list;
     }
@@ -76,8 +71,8 @@ public class HoaDonDao {
         values.put("maKh", HD.getMaKh());
         values.put("maSP", HD.getMaSp());
         values.put("Tien", HD.getTien());
-        values.put("thanhToan", HD.getThanhToan());
-        values.put("ngay", format.format(HD.getNgay()));
+        values.put("thanhToan", "");
+        values.put("ngay",HD.getNgay());
 
         int kq = sqLiteDatabase.update("HOADON", values, "maHD=?", new String[]{String.valueOf(HD.getMaHd())});
         if (kq <= 0) {
@@ -87,7 +82,7 @@ public class HoaDonDao {
     }
 
     public ArrayList<SanPham> top(){
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.maSp,SANPHAM.tenSP,SANPHAM.soLuong,SANPHAM.gia,COUNT(SANPHAM.maSP) FROM SANPHAM JOIN HOADON ON SANPHAM.maSp=HOADON.maSp GROUP BY HOADON.maSP ORDER BY COUNT(SANPHAM.maSp) DESC LIMIT 10", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.maSp,SANPHAM.tenSP, SANPHAM.gia, SANPHAM.soLuong,COUNT(SANPHAM.maSP) FROM SANPHAM JOIN HOADON ON SANPHAM.maSp=HOADON.maSp GROUP BY HOADON.maSP ORDER BY COUNT(SANPHAM.maSp) DESC LIMIT 10", null);
         ArrayList<SanPham> list = new ArrayList<>();
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
@@ -117,17 +112,13 @@ public class HoaDonDao {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                try {
-                    list.add(new HoaDon(cursor.getInt(0),
-                            cursor.getInt(1),
-                            cursor.getInt(2),
-                            cursor.getInt(3),
-                            cursor.getInt(4),
-                            cursor.getString(5),
-                            format.parse(cursor.getString(6))));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                list.add(new HoaDon(cursor.getInt(0),
+                        cursor.getInt(1),
+                        cursor.getInt(2),
+                        cursor.getInt(3),
+                        cursor.getInt(4),
+                        cursor.getString(5),
+                        cursor.getString(6)));
             } while (cursor.moveToNext());
         }
         return list;
