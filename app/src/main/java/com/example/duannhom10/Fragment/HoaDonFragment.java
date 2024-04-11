@@ -51,7 +51,7 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
     private SanPhamDao spDAO;
     private KhachHangDao KhDao;
     private Spinner spn_tenNv,spn_tenSp, spn_tenKh, spn_ttoan;
-    private int day,month,year;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     public HoaDonFragment() {
         // Required empty public constructor
@@ -148,25 +148,8 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
         builder.setView(v);
         AlertDialog alertDialog = builder.create();
 
-        Calendar calendar = Calendar.getInstance();
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-        month = calendar.get(Calendar.MONTH);
-        year = calendar.get(Calendar.YEAR);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ngay.setText("Ngày mua: "+new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
 
-        ngay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar.set(year,month,dayOfMonth);
-                        ngay.setText(simpleDateFormat.format(calendar.getTime()));
-                    }
-                },year,month,day);
-                datePickerDialog.show();
-            }
-        });
         spn_tenSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -185,7 +168,8 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
             hoaDon.setMaSp(split(spn_tenSp));
             hoaDon.setMaKh(split(spn_tenKh));
             hoaDon.setTien(Integer.parseInt(gia.getText().toString()));
-            hoaDon.setNgay(ngay.getText().toString());
+            hoaDon.setThanhToan(spn_ttoan.getSelectedItemPosition());
+            hoaDon.setNgay(new Date());
             int kq = hoaDonDao.Insert(hoaDon);
             if (kq == -1) {
                 Toast.makeText(getActivity(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
@@ -210,6 +194,21 @@ public class HoaDonFragment extends Fragment implements View.OnClickListener{
         }else {
             Toast.makeText(getActivity(), "Hien tai dang ko co du lieu,Vui long them du lieu de xuat hoa don", Toast.LENGTH_SHORT).show();}
     }
+//    public int split(Spinner spn) {
+//        if (spn.getSelectedItem() != null) {
+//            String chuoi = (String) spn.getSelectedItem();
+//            String[] chuoi2 = chuoi.split("\\.");
+//            if (chuoi2.length > 0 && chuoi2[0].matches("\\d+")) {
+//                return Integer.parseInt(chuoi2[0]);
+//            } else {
+//                // Xử lý trường hợp không phải số ở đây, ví dụ thông báo hoặc xử lý khác
+//                return -1;
+//            }
+//        } else {
+//            Toast.makeText(getActivity(), "Thành viên hoặc sản phẩm hiện đang không có, bạn cần thêm dữ liệu.", Toast.LENGTH_SHORT).show();
+//            return -1;
+//        }
+//    }
     public int split(Spinner spn){
         if (spn.getSelectedItem() != null) {
             String chuoi = (String) spn.getSelectedItem();

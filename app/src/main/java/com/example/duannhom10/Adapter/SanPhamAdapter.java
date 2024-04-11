@@ -151,7 +151,16 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.SanPView
         builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                SanPham sanPham;
+//                sanPham = arrayList.get();
+//                if(sanPham == null){
+//                    return;
+//                }
+//                holder.ma.setText(""+sanPham.getMaSp());
+//                holder.ten.setText(""+sanPham.getTenSp());
+//                holder.gia.setText(""+ sanPham.getGia());
+//                holder.soLg.setText(""+ sanPham.getSoLuong());
+//                holder.moTa.setText(""+ sanPham.getMoTa());
             }
         });
         builder.show();

@@ -82,7 +82,6 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonView
         holder.Kh.setText(khachHang.getTenKh());
 
         holder.tien.setText(String.valueOf(HD.getTien()));
-        holder.ngay.setText(""+HD.getNgay());
 
         if (holder.spinner != null) {
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -93,6 +92,8 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonView
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             holder.spinner.setAdapter(adapter);
         }
+
+        holder.ngay.setText(new SimpleDateFormat("dd/MM/yyyy").format(HD.getNgay()));
     }
 
     @Override
@@ -113,31 +114,8 @@ public class HoaDonAdapter extends RecyclerView.Adapter<HoaDonAdapter.HoaDonView
             sP = itemView.findViewById(R.id.tv_Hd_Sanpham);
             Kh = itemView.findViewById(R.id.tv_Hd_makhach);
             tien = itemView.findViewById(R.id.tv_Hd_tien);
-            ngay = itemView.findViewById(R.id.tv_Hd_ngay);
-
             spinner = itemView.findViewById(R.id.spn_dialog_Hd_ttoan);
-        }
-    }
-
-    public void Spn_Adapter(Spinner spn, List<String> list) {
-
-        if (list !=null){
-            ArrayAdapter<String> adapterSach = new ArrayAdapter<>(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
-            spn.setAdapter(adapterSach);
-
-        }else {
-            Toast.makeText(context, "Hiện không có dữ liệu, vui lòng thêm dữ liệu để xuất hóa đơn", Toast.LENGTH_SHORT).show();}
-    }
-
-    public int split(Spinner spn) {
-
-        if (spn.getSelectedItem() != null) {
-            String chuoi = (String) spn.getSelectedItem();
-            String[] chuoi2 = chuoi.split("\\.");
-            return Integer.parseInt(chuoi2[0]);
-        } else {
-            Toast.makeText(context, "Nhân viên hoặc sản phẩm hiện đang ko có ,bạn cần thêm dữ liệu   ,", Toast.LENGTH_SHORT).show();
-            return -1;
+            ngay = itemView.findViewById(R.id.tv_Hd_ngay);
         }
     }
 }
