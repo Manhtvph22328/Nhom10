@@ -16,6 +16,8 @@ public class HoaDonDao {
     private Context contextt;
     private SQLiteDatabase sqLiteDatabase;
     private Database database;
+    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
 
     public HoaDonDao(Context contextt) {
         this.contextt = contextt;
@@ -30,7 +32,7 @@ public class HoaDonDao {
         values.put("maSP", HD.getMaSp());
         values.put("Tien", HD.getTien());
         values.put("thanhToan", "");
-        values.put("ngay", HD.getNgay());
+        values.put("ngay", format.format(HD.getNgay()));
 
         long kq = sqLiteDatabase.insert("HOADON", null, values);
         if (kq <= 0) {
@@ -45,13 +47,17 @@ public class HoaDonDao {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
+                try {
                     list.add(new HoaDon(cursor.getInt(0),
                             cursor.getInt(1),
                             cursor.getInt(2),
                             cursor.getInt(3),
                             cursor.getInt(4),
-                            cursor.getString(5),
-                            cursor.getString(6)));
+                            cursor.getInt(5),
+                            format.parse(cursor.getString(6))));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }while (cursor.moveToNext());
         }
         return list;
@@ -72,7 +78,7 @@ public class HoaDonDao {
         values.put("maSP", HD.getMaSp());
         values.put("Tien", HD.getTien());
         values.put("thanhToan", "");
-        values.put("ngay",HD.getNgay());
+        values.put("ngay",format.format(HD.getNgay()));
 
         int kq = sqLiteDatabase.update("HOADON", values, "maHD=?", new String[]{String.valueOf(HD.getMaHd())});
         if (kq <= 0) {
@@ -112,13 +118,17 @@ public class HoaDonDao {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                list.add(new HoaDon(cursor.getInt(0),
-                        cursor.getInt(1),
-                        cursor.getInt(2),
-                        cursor.getInt(3),
-                        cursor.getInt(4),
-                        cursor.getString(5),
-                        cursor.getString(6)));
+                try {
+                    list.add(new HoaDon(cursor.getInt(0),
+                            cursor.getInt(1),
+                            cursor.getInt(2),
+                            cursor.getInt(3),
+                            cursor.getInt(4),
+                            cursor.getInt(5),
+                            format.parse(cursor.getString(6))));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             } while (cursor.moveToNext());
         }
         return list;

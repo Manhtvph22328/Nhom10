@@ -46,7 +46,6 @@ public class Login extends AppCompatActivity {
             ed_mk.setText(list.get(1));
             chk_luu.setChecked(Boolean.parseBoolean(list.get(2)));
         }
-
             arrayList = nhanVienDao.getAllNhanVien();
 
         Log.e("DU LIEU DATABASE ", ""+arrayList.size());

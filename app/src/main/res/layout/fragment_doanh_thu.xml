@@ -9,25 +9,53 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="127dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="235dp"
-            android:src="@drawable/bieudo" />
-
-        <Button
-            android:id="@+id/btndoanhthu"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        >
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#4CAF50"
-            android:drawableLeft="@drawable/doanhthuuu"
-            android:text="Thống kê"
-            android:textColor="#1E1D1D" />
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/btnAddt"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/imgad"/>
+            <TextView
+                android:text="Admin"
+                android:layout_marginLeft="10dp"
+                android:textColor="#007FFF"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textStyle="bold|italic"
+                android:layout_width="120dp"
+                android:layout_height="30dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:orientation="vertical">
+            <ImageButton
+                android:id="@+id/btnnviendt"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/imgnv"/>
+            <TextView
+                android:text="Nhan Vien"
+                android:layout_marginLeft="10dp"
+                android:textColor="#007FFF"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textStyle="bold|italic"
+                android:layout_width="120dp"
+                android:layout_height="30dp"/>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

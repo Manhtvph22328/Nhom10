@@ -36,9 +36,9 @@ public class Database extends SQLiteOpenHelper {
             " maNv INTEGER REFERENCES NHANVIEN(maNv),"+
             " maKh INTEGER REFERENCES KHACHHANG(maKh),"+
             " maSP INTEGER REFERENCES SANPHAM(maSP),"+
+            " Tien INTEGER not null,"+
             " thanhToan TEXT not null,"+
-            " Ngay TEXT not null,"+
-            " Tien INTEGER not null);";
+            " Ngay DATE not null);";
 
     public static final String Insert_Admin = "INSERT INTO NHANVIEN(tenNv, namSinh, email, matKhau) VALUES"+
             "('admin', '01/01/1990', 'admin@example.com','aaaa')";
