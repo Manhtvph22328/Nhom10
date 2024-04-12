@@ -37,8 +37,6 @@ import java.util.List;
 public class DoanhThuFragment extends Fragment {
 
     ImageButton btnad, btnnv;
-    private NhanVienDao nhanVienDao;
-    private List<NhanVien> arrayList;
     public DoanhThuFragment() {
         // Required empty public constructor
     }
@@ -69,43 +67,17 @@ public class DoanhThuFragment extends Fragment {
         btnad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_check();
+                Intent intent = new Intent(getContext(), CheckUser.class);
+                startActivity(intent);
             }
         });
-    }
-    public void dialog_check(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.dialog_checkuser,null);
 
-        EditText ed_ma = v.findViewById(R.id.ed_maUser);
-        builder.setView(v);
-        AlertDialog alertDialog = builder.create();
-
-//        v.findViewById(R.id.btnxacnhanuser).setOnClickListener(v1 ->{
-//            String tk = ed_ma.getText().toString();
-//
-//            for (int i = 0; i < arrayList.size(); i++) {
-//                NhanVien nhanVien = arrayList.get(i);
-//                Log.e("User",nhanVien.getMaNv()+ ""+nhanVien.getMatKhau());
-//                if (tk.equals(nhanVien.getMaNv())) {
-//
-//                    Toast.makeText(getActivity(), "Check thành công", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(DoanhThuFragment.this, CuaHangFragment.class);
-//                    intent.putExtra("TK", tk);
-//                    startActivity(intent);
-//                    return;
-//                }
-//            }
-//            if (tk.length() == 0 ) {
-//                Toast.makeText(getActivity(), "Không để trống", Toast.LENGTH_SHORT).show();
-//            } else {
-//                Toast.makeText(getActivity(), "Sai thông tin", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-    }
-    private List<String> readPreference() {
-        List<String> list = new ArrayList<>();
-        return list;
+        btnnv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CheckUser.class);
+                startActivity(intent);
+            }
+        });
     }
 }

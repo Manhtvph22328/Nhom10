@@ -103,7 +103,7 @@ public class HoaDonDao {
     }
 
     public int Doanhthu(String date1, String date2) {
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SUM(TongTien) FROM HOADON WHERE Ngay BETWEEN ? AND ?", new String[]{date1, date2});
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SUM(Tien) FROM HOADON WHERE ngay BETWEEN ? AND ?", new String[]{date1, date2});
         int dt = 0;
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();

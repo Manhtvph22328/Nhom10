@@ -4,29 +4,28 @@ import static android.app.PendingIntent.getActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.duannhom10.Fragment.DoanhThu.CuaHangFragment;
-import com.example.duannhom10.Model.DanhMuc;
+import com.example.duannhom10.Fragment.DoanhThu.DoanhThuFragment;
+import com.example.duannhom10.Fragment.DoanhThu.ThongkeCuaHang;
+import com.example.duannhom10.Fragment.SanPhamFragment;
 import com.example.duannhom10.Model.NhanVien;
-import com.example.duannhom10.SQL.DanhMucDao;
+
 import com.example.duannhom10.SQL.NhanVienDao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckUser extends AppCompatActivity {
-    private ImageButton btnad, btnnv;
+    private Button btnok;
+    private EditText ed_ma;
     private NhanVienDao nhanVienDao;
     private List<NhanVien> arrayList;
 
@@ -34,58 +33,52 @@ public class CheckUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_user);
-
-        btnad = findViewById(R.id.btnAddt);
-        btnnv = findViewById(R.id.btnnviendt);
+        ed_ma = findViewById(R.id.ed_maUser);
+        btnok = findViewById(R.id.btnxacnhanuser);
 
         nhanVienDao = new NhanVienDao(CheckUser.this);
         List<String> list = new ArrayList<>();
+
+        if (list.size() > 0) {
+            ed_ma.setText(list.get(0));
+        }
         arrayList = nhanVienDao.getAllNhanVien();
 
         Log.e("DU LIEU DATABASE ", ""+arrayList.size());
-
-        btnad.setOnClickListener(new View.OnClickListener() {
+        btnok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog_chkUser();
-            }
-        });
-    }
-    public void dialog_chkUser(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(CheckUser.this);
-        LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.dialog_checkuser,null);
-
-        EditText ma = v.findViewById(R.id.ed_maUser);
-        ImageButton btnad = v.findViewById(R.id.btnAddt);
-        ImageButton btnnv = v.findViewById(R.id.btnnviendt);
-
-        builder.setView(v);
-        AlertDialog alertDialog = builder.create();
-        btnad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tk = ma.getText().toString();
+                String ma = ed_ma.getText().toString();
 
                 for (int i = 0; i < arrayList.size(); i++) {
                     NhanVien nhanVien = arrayList.get(i);
-                    Log.e("User",nhanVien.getMaNv());
-                    if (tk.equals(nhanVien.getMaNv())) {
-                        Toast.makeText(CheckUser.this, "Xac Nhan thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(CheckUser.this, CuaHangFragment.class);
-                        intent.putExtra("TK", tk);
+                    Log.e("admin",nhanVien.getMaNv());
+                    if (ma.equals(nhanVien.getMaNv())) {
+                        Toast.makeText(CheckUser.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(CheckUser.this, ThongkeCuaHang.class);
+                        intent.putExtra("TK", ma);
                         startActivity(intent);
-                        alertDialog.dismiss();
                         return;
                     }
                 }
-                if (tk.length() == 0) {
+                if (ma.length() == 0) {
                     Toast.makeText(CheckUser.this, "Không để trống", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(CheckUser.this, "Sai thông tin", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        alertDialog.show();
+        findViewById(R.id.btnhome1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CheckUser.this, DoanhThuFragment.class);
+                startActivity(intent);
+            }
+        });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        arrayList = nhanVienDao.getAllNhanVien();
     }
 }
