@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.DoanhThu.ThongkeCuaHang">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+        <Button
+            android:id="@+id/btnhome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#A8ECAB"
+            android:drawableLeft="@drawable/sanpham"
+            android:text="Home"
+            android:textColor="#1E1D1D" />
+        <ImageView
+            android:layout_width="127dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="95dp"
+            android:src="@drawable/bieudo" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:src="@drawable/btnday1" />
+            <EditText
+                android:drawableEnd="@drawable/calendar"
+                android:id="@+id/ed_DT_tuNgay"
+                android:layout_margin="10dp"
+                android:text="Từ Ngày"
+                android:gravity="center"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:background="@color/black50"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:src="@drawable/btnday2" />
+            <EditText
+                android:drawableEnd="@drawable/calendar"
+                android:id="@+id/ed_DT_denNgay"
+                android:layout_margin="10dp"
+                android:text="Đến Ngày"
+                android:gravity="center"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:background="@color/black50"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:text=" Doanh thu:"
+                android:background="@color/black50"
+                android:backgroundTint="@color/grey"
+                android:textStyle="bold"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:textSize="25dp"/>
+            <TextView
+                android:id="@+id/tvdoanhthu"
+                android:textColor="@color/red"
+                android:background="#C5DDC6"
+                android:layout_width="match_parent"
+                android:layout_marginRight="18dp"
+                android:layout_height="40dp"
+                android:textSize="25dp"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btndoanhthu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/doanhthuuu"
+            android:layout_gravity="center"
+            android:text="Doanh Thu"
+            android:layout_margin="20dp"
+            android:textColor="#1E1D1D"
+            android:backgroundTint="#8BEF8F"/>
+    </LinearLayout>
+</FrameLayout>
